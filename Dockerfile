@@ -1,7 +1,8 @@
 # FROM ubuntu:14.04
 FROM dockerfile/ubuntu
-MAINTAINER Ushio Shugo <ushio.s@gmail.com>
+MAINTAINER Daniel Blanco - Blanco Martin & Asociados <daniel@blancomartin.cl>
 
+RUN sed -i.bak "s/trusty/precise/g" /etc/apt/sources.list
 # update repositories
 RUN apt-get -y update
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y upgrade
