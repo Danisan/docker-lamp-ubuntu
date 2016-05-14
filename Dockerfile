@@ -16,10 +16,20 @@ RUN rm -f /packages.sh
 # ssh settings
 RUN mkdir -p /var/run/sshd
 
+# vuelvo los repos al valor inicial
+RUN sudo sed -i "s/precise/trusty/g" /etc/apt/sources.list
+RUN apt-get -y update
+
+#No se bien que hace aca
+RUN dpkg --get-selections | egrep '^(apache|php)' | sed 's/install/hold/g' | sudo dpkg --set-selections
+RUN sudo apt-get update
+RUN sudo apt-get install  mysql-client mysql-server phpmyadmin
+
 # middleware settings
 ADD ./root/etc/supervisor/conf.d/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 ADD ./root/etc/mysql/conf.d/bind-address.cnf /etc/mysql/conf.d/bind-address.cnf
 
-EXPOSE 22 80 3306
+# EXPOSE 22 80 3306
+EXPOSE 80 3306
 
 CMD ["/usr/bin/supervisord"]
