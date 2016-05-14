@@ -5,6 +5,8 @@ apache2 \
 php5 \
 libapache2-mod-php5 \
 php5-mysql \
+php5-mcrypt \
+php5-gd \
 php5-curl \
 php-pear \
 php5-imap \
@@ -15,10 +17,9 @@ php5-memcache
 # apache2-suexec
 # libapache2-mod-fcgid
 # php5-cgi
-# php5-gd
+
 # php5-intl
 # php5-imagick
-# php5-mcrypt
 # php5-ming
 # php5-ps
 # php5-pspell
