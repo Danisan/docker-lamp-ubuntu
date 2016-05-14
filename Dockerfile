@@ -1,5 +1,4 @@
-# FROM ubuntu:14.04
-FROM dockerfile/ubuntu
+FROM ubuntu:14.04
 MAINTAINER Daniel Blanco - Blanco Martin & Asociados <daniel@blancomartin.cl>
 
 RUN sed -i.bak "s/trusty/precise/g" /etc/apt/sources.list
